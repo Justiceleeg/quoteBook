@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="quoteBook">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles.css"></link>
+    <script src="https://use.fontawesome.com/b4a2162ad9.js"></script>
+</head>
+
+<body ng-controller="mainCtrl">
+    <div class="mainContainer">
+        <div class='inputBar'>
+          <input type="text" placeholder="Add new quote!" ng-model="newQuote">
+          <input type="text" placeholder="Add an author!" ng-model="newAuthor">
+          <button ng-click='addQuote()'>Add</button>
+        </div>
+        <div class="quoteCSS" ng-repeat="quote in quotes">
+            <div>
+                <span class="quoteText">"{{quote.text}}"</span><span class="author">{{quote.author}}</span>
+            </div>
+            <div class="icon"><i ng-click="removeQuote(quote.text)" class="fa fa-times-circle" aria-hidden="true"></i></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="./app.js"></script>
+    <script src="./mainCtrl.js"></script>
+    <script src="./quoteService.js"></script>
+</body>
+
+</html>
